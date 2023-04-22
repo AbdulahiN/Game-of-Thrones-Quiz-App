@@ -1,0 +1,87 @@
+.choice-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 1.8rem;
+    border: 0.1rem solid rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  .choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(201, 201, 201, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+  }
+  
+  .choice-prefix {
+    padding: 1.5rem 2.5rem;
+    background-color: #2d2e33b1;
+    color: rgb(255, 255, 255);
+  }
+  
+  .choice-text {
+    padding: 1.5rem;
+    width: 100%;
+  }
+  
+  .correct {
+    background-color: #28a745;
+  }
+  
+  .incorrect {
+    background-color: #dc3545;
+  }
+  
+  /* HUD */
+  
+  #hud {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .hud-prefix {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .hud-main-text {
+    text-align: center;
+  }
+  
+  #progressBar {
+    width: 20rem;
+    height: 4rem;
+    border: 0.3rem solid #ececec;
+    margin-top: 1.5rem;
+  }
+  
+  #progressBarFull {
+    height: 3.4rem;
+    background-color: #ffffff;
+    width: 0%;
+  }
+
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    
+  }
+  body {
+    overflow: hidden;
+  }
+  #muteButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
