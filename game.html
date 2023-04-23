@@ -5,48 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>A Song of Ice and Fire Quiz - Play</title>
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const video = document.getElementById("myVideo");
-        video.addEventListener("ended", () => {
-          video.currentTime = 0;
-        });
-        const myVideo = document.getElementById('myVideo');
-const videoTime = localStorage.getItem('videoTime');
-
-if (videoTime) {
-  myVideo.currentTime = videoTime;
-}
-      });
-      window.addEventListener("DOMContentLoaded", () => {
-        const video = document.getElementById("myVideo");
-        const muteButton = document.getElementById("muteButton");
-        const isMuted = localStorage.getItem("isMuted");
-
-        if (isMuted === "true") {
-          video.muted = true;
-          muteButton.textContent = "Unmute";
-        } else {
-          video.muted = false;
-          muteButton.textContent = "Mute";
-        }
-
-        muteButton.addEventListener("click", () => {
-          if (video.muted) {
-            video.muted = false;
-            muteButton.textContent = "Mute";
-            localStorage.setItem("isMuted", "false");
-          } else {
-            video.muted = true;
-            muteButton.textContent = "Unmute";
-            localStorage.setItem("isMuted", "true");
-          }
-        });
-      });</script>
     <link rel="stylesheet" href="app.css" />
     <link rel="stylesheet" href="game.css" />
+    <style>
+      body {
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+      #myAudio {
+        display: none;
+      }
+      #muteButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1;
+      }
+      #muteButton:hover {
+        opacity: 0.7;
+      }
+    </style>
   </head>
   <body>
+    <!-- The audio -->
+    <audio autoplay loop id="myAudio">
+      <source src="music.mp3" type="audio/mp3" volume="0.5">
+    </audio>
+    <!-- Mute button -->
+    <button id="muteButton" onclick="toggleMute()">Mute</button>
+    <!-- The game -->
     <div class="container">
       <div id="game" class="justify-center flex-column">
         <div id="hud">
@@ -87,15 +80,20 @@ if (videoTime) {
       </div>
     </div>
     <script src="game.js"></script>
+    <script>
+      // Mute button
+      const audio = document.getElementById('myAudio');
+      const muteButton = document.getElementById('muteButton');
+
+      function toggleMute() {
+        if (audio.muted) {
+          audio.muted = false;
+          muteButton.textContent = 'Mute';
+        } else {
+          audio.muted = true;
+          muteButton.textContent = 'Unmute';
+        }
+      }
+    </script>
   </body>
-     <!-- The video -->
-<video autoplay loop id="myVideo">
-  <source src="rain.mp4" type="video/mp4" controls volume="0.5">
-</video>
-<button id="muteButton" onclick="toggleMute()">Mute</button>
-</div>
-  <div class="container">
-    <div id="home" class="flex-center flex-column">
 </html>
-
-
